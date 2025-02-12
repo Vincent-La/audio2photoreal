@@ -5,3 +5,4 @@ dataset
 checkpoints
 **.tar
 **.tar.1
+test_output
