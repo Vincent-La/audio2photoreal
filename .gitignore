@@ -6,3 +6,4 @@ checkpoints
 **.tar
 **.tar.1
 test_output
+test_full_output
