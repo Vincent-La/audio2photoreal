@@ -17,6 +17,7 @@
 #SBATCH --mem=64gb                                 # (cpu) memory required by job; if unit is not specified MB will be assumed
 
 module load cuda
+module load ffmpeg
 source ~/.bashrc
 micromamba activate a2p_env
 
