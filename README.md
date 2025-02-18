@@ -23,7 +23,7 @@ These are named differently for some reason but the mapping is stored in some `.
 + `TXB805` <--> `c3`
 + `GQS883` <--> `c4`
 
-## inference.py
+## `inference.py`
 Perform end-to-end generating photorealistic avatar render from audio
 
 Usage:
