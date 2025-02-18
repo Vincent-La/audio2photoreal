@@ -7,3 +7,5 @@ checkpoints
 **.tar.1
 test_output
 outputs
+vis_anno_test
+a2p_*

@@ -205,7 +205,7 @@ class A2PModel:
         return np.concatenate(all_motions, axis=0)
 
 
-def generate_results(a2p_model:A2PModel, audio: np.ndarray, num_repetitions: int, top_p: float):
+def generate_results(a2p_model:A2PModel, audio: np.ndarray, num_repetitions: int, top_p: float, guidance_param=2.0):
     # if audio is None:
     #     raise gr.Error("Please record audio to start")
 
@@ -256,7 +256,7 @@ def generate_results(a2p_model:A2PModel, audio: np.ndarray, num_repetitions: int
             "pose",
             curr_seq_length,
             num_repetitions=int(num_repetitions),
-            guidance_param=2.0,
+            guidance_param=guidance_param,
             top_p=top_p,
         )
         .squeeze(2)
@@ -272,8 +272,8 @@ def generate_results(a2p_model:A2PModel, audio: np.ndarray, num_repetitions: int
     return face_results, pose_results, dual_audio[0].transpose(1, 0).astype(np.float32)
 
 
-def audio_to_avatar(a2p_model:A2PModel, audio: np.ndarray, num_repetitions: int, top_p: float):
-    face_results, pose_results, audio = generate_results(a2p_model, audio, num_repetitions, top_p)
+def audio_to_avatar(a2p_model:A2PModel, audio: np.ndarray, num_repetitions: int, top_p: float, guidance_param = 2.0):
+    face_results, pose_results, audio = generate_results(a2p_model, audio, num_repetitions, top_p, guidance_param=guidance_param)
     # returns: num_rep x T x 104
     B = len(face_results)
     results = []
@@ -334,6 +334,14 @@ if __name__ == '__main__':
         help = 'Tunes the cumulative probability in nucleus sampling: 0.01 = low diversity, 1.0 = high diversity.'
     )
 
+    parser.add_argument(
+        '--guidance_param',
+        type = float,
+        required=False,
+        default=2.0,
+        help = 'how influential the conditioning is on the results, reccommended [2.0, 10.0]'
+    )
+
     args = parser.parse_args()
     print(args)
 
@@ -351,7 +359,8 @@ if __name__ == '__main__':
     audio_to_avatar(a2p_model=model, 
                     audio=input_audio,
                     num_repetitions=args.num_samples,
-                    top_p=args.sample_diversity)
+                    top_p=args.sample_diversity,
+                    guidance_param = args.guidance_param)
     
     print('FINISH INFERENCE')
 

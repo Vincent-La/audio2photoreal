@@ -22,22 +22,26 @@ micromamba activate a2p_env
 
 python inference.py --person_id PXB184 \
                     --input_audio audio/talkshow_various_char_trimmed.wav \
-                    --output_dir outputs/talkshow_var/PXB184 \
-                    --num_samples 3
+                    --output_dir outputs/talkshow_var/PXB184_10 \
+                    --num_samples 1 \
+                    --guidance_param 10.0
 
 python inference.py --person_id GQS883 \
                     --input_audio audio/talkshow_various_char_trimmed.wav \
-                    --output_dir outputs/talkshow_var/GQS883 \
-                    --num_samples 3
+                    --output_dir outputs/talkshow_var/GQS883_10 \
+                    --num_samples 1 \
+                    --guidance_param 10.0
 
 python inference.py --person_id RLW104 \
                     --input_audio audio/talkshow_various_char_trimmed.wav \
-                    --output_dir outputs/talkshow_var/RLW104 \
-                    --num_samples 3
+                    --output_dir outputs/talkshow_var/RLW104_10 \
+                    --num_samples 1 \
+                    --guidance_param 10.0
 
 python inference.py --person_id TXB805 \
                     --input_audio audio/talkshow_various_char_trimmed.wav \
-                    --output_dir outputs/talkshow_var/TXB805 \
-                    --num_samples 3
+                    --output_dir outputs/talkshow_var/TXB805_10 \
+                    --num_samples 1 \
+                    --guidance_param 10.0
 
                     

@@ -22,5 +22,6 @@ micromamba activate a2p_env
 
 python inference.py --person_id PXB184 \
                     --input_audio audio/gump_medium.wav \
-                    --output_dir outputs/gump_medium/PXB184 \
-                    --num_samples 3
+                    --output_dir outputs/gump_medium/PXB184_10 \
+                    --num_samples 1 \
+                    --guidance_param 10.0
