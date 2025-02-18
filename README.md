@@ -24,7 +24,7 @@ These are named differently for some reason but the mapping is stored in some `.
 + `GQS883` <--> `c4`
 
 ## `inference.py`
-Perform end-to-end generating photorealistic avatar render from audio
+Perform end-to-end inference generating photorealistic avatar render from audio
 
 Usage:
 ```
