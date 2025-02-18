@@ -47,4 +47,6 @@ optional arguments:
                         how influential the conditioning is on the results, reccommended [2.0, 10.0]
 ```
 
+`--guidance_param` only changes the value for the body/guide models for now. Face model value is set to 10.0
+
 See [submit_scripts](submit_scripts) for examples of using inference.py
