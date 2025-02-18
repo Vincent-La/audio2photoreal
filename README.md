@@ -22,3 +22,29 @@ These are named differently for some reason but the mapping is stored in some `.
 + `RLW104` <--> `c2`
 + `TXB805` <--> `c3`
 + `GQS883` <--> `c4`
+
+## inference.py
+Perform end-to-end generating photorealistic avatar render from audio
+
+Usage:
+```
+usage: inference.py [-h] --person_id {PXB184,RLW104,TXB805,GQS883} --input_audio INPUT_AUDIO --output_dir OUTPUT_DIR [--num_samples NUM_SAMPLES]
+                    [--sample_diversity SAMPLE_DIVERSITY] [--guidance_param GUIDANCE_PARAM]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --person_id {PXB184,RLW104,TXB805,GQS883}
+                        Person ID to select face, pose, guide, and avatar models
+  --input_audio INPUT_AUDIO
+                        Path to audio (.wav) file as input
+  --output_dir OUTPUT_DIR
+                        Path to output files to
+  --num_samples NUM_SAMPLES
+                        Number of samples to generate
+  --sample_diversity SAMPLE_DIVERSITY
+                        Tunes the cumulative probability in nucleus sampling: 0.01 = low diversity, 1.0 = high diversity.
+  --guidance_param GUIDANCE_PARAM
+                        how influential the conditioning is on the results, reccommended [2.0, 10.0]
+```
+
+See [submit_scripts](submit_scripts) for examples of using inference.py
